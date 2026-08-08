@@ -92,7 +92,6 @@ class GeminiClient:
         )
 
 
-# Gemini function-calling schemas are a strict subset of JSON Schema.
 _GEMINI_SCHEMA_KEYS = {
     "type",
     "description",
@@ -110,7 +109,7 @@ _GEMINI_SCHEMA_KEYS = {
 
 
 def _gemini_schema(schema: Any) -> Any:
-    """Strip JSON Schema fields Gemini rejects (e.g. additionalProperties)."""
+    """Normalize a JSON Schema object for Gemini function declarations."""
     if isinstance(schema, list):
         return [_gemini_schema(x) for x in schema]
     if not isinstance(schema, dict):
@@ -157,7 +156,6 @@ def _to_gemini_contents(m: Message) -> List[Dict[str, Any]]:
             }
         ]
     if m.role == "assistant":
-        # Replay model parts verbatim so thoughtSignature survives (Gemini 2.5/3).
         if m.raw_parts:
             return [{"role": "model", "parts": copy.deepcopy(m.raw_parts)}]
         parts: List[Dict[str, Any]] = []

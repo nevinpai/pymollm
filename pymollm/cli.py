@@ -36,11 +36,7 @@ _CONFIG_FIELDS = {
 
 
 def _parse_config_text(text: str) -> dict:
-    """Parse 'provider gemini key AIza... model gemini-2.5-flash'.
-
-    PyMOL often passes the whole line as a single argument, so we always
-    re-tokenize the joined text. Values may contain spaces until the next field name.
-    """
+    """Parse config tokens such as: provider gemini key AIza... model gemini-2.5-flash."""
     tokens = text.split()
     if not tokens:
         return {}

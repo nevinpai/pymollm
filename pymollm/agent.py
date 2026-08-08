@@ -189,7 +189,6 @@ def _run_loop() -> None:
             _state.turn_active = False
             return
 
-        # Record assistant tool-call message (keep raw_parts for Gemini thought signatures)
         _state.messages.append(
             Message(
                 role="assistant",

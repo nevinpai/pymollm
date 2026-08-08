@@ -1,4 +1,4 @@
-"""Tiny HTTP helpers. Prefer httpx when available; else stdlib urllib."""
+"""HTTP helpers (httpx if installed, otherwise urllib)."""
 
 from __future__ import annotations
 

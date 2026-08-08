@@ -74,7 +74,6 @@ def color_by_bfactor(
     if minimum is not None and maximum is not None:
         cmds = [f"spectrum b, {palette}, {sel}, minimum={minimum}, maximum={maximum}"]
     result = _run(cmds)
-    # Also show cartoon if everything is hidden-ish — gentle default
     result["note"] = f"Colored {sel} by B-factor using spectrum ({palette})"
     return result
 

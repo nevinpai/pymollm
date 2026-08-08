@@ -18,7 +18,6 @@ class ToolCall:
     id: str
     name: str
     arguments: Dict[str, Any]
-    # Gemini thinking models attach this to functionCall parts; must be echoed back.
     thought_signature: str = ""
 
 
@@ -29,8 +28,6 @@ class Message:
     tool_calls: List[ToolCall] = field(default_factory=list)
     tool_call_id: str = ""
     name: str = ""  # tool name when role=tool
-    # Opaque provider parts (e.g. Gemini model parts with thoughtSignature).
-    # When set, Gemini replays these instead of rebuilding functionCall parts.
     raw_parts: List[Any] = field(default_factory=list)
 
 

@@ -10,8 +10,6 @@ readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
 authors = [{ name = "pymollm contributors" }]
-# Zero hard deps: HTTP uses stdlib urllib (httpx optional). This installs cleanly
-# into PyMOL.app, which often lacks pip / cannot build cryptography.
 dependencies = []
 
 [project.optional-dependencies]

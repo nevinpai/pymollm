@@ -218,12 +218,6 @@ def inspect_session(object_name: str = "") -> Dict[str, Any]:
             n_atoms = -1
         chains: List[str] = []
         try:
-            stored = []
-            cmd.iterate(obj, "stored.append(chain)")
-            # fallback without stored
-        except Exception:
-            pass
-        try:
             from pymol import stored
 
             stored.chains = []
